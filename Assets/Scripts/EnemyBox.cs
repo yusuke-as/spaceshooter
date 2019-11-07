@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyBox : MonoBehaviour
 {
     public GameObject prefab;
+    Coroutine routine = null;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CreateEnemy());
+        routine=StartCoroutine(CreateEnemy());
     }
 
     // Update is called once per frame
@@ -28,5 +29,10 @@ public class EnemyBox : MonoBehaviour
                 Quaternion.identity
                 );
         }
+    }
+    public void Stop()
+    {
+        StopCoroutine( routine );
+        Time.timeScale = 0f;
     }
 }

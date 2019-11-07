@@ -18,7 +18,8 @@ public class EnemyMove : MonoBehaviour
         transform.Translate(0, 0, -speed*Time.deltaTime,Space.World);
         if (transform.position.z < -30.0f)
         {
-            Destroy(gameObject);
+            GameObject.FindObjectOfType<GameController>().GameOver();
+            //Destroy(gameObject);
         }
     }
 }
